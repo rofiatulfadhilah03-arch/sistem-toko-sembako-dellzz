@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Nota Pembelian | Toko Sembako</title><style>
+        :root {
+            --ink: #111827;
+            --muted: #6b7280;
+            --line: #d1d5db;
+            --primary: #2563eb;
+            --green: #16a34a;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at top left, rgba(37,99,235,.18), transparent 30rem),
+                radial-gradient(circle at bottom right, rgba(22,163,74,.14), transparent 28rem),
+                #eef5ff;
+        }
+        .screen-wrap {
+            width: min(980px, 100%);
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+        .toolbar {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            box-shadow: 0 18px 45px rgba(15,23,42,.10);
+            padding: 24px;
+        }
+        .toolbar h1 {
+            margin: 0 0 8px;
+            font-size: 28px;
+            letter-spacing: -.04em;
+        }
+        .toolbar p {
+            margin: 0 0 18px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+        .toolbar .btns {
+            display: grid;
+            gap: 10px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            border: 0;
+            border-radius: 14px;
+            padding: 12px 15px;
+            background: linear-gradient(135deg, var(--primary), #3b82f6);
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 14px;
+            box-shadow: 0 8px 18px rgba(37,99,235,.22);
+        }
+        .btn.green { background: linear-gradient(135deg, #16a34a, #22c55e); box-shadow: 0 8px 18px rgba(22,163,74,.20); }
+        .btn.gray { background: linear-gradient(135deg, #475569, #64748b); box-shadow: 0 8px 18px rgba(71,85,105,.20); }
+        .nota-preview {
+            display: grid;
+            place-items: start center;
+        }
+        .receipt {
+            width: 80mm;
+            min-height: 120mm;
+            background: #fff;
+            border-radius: 18px;
+            padding: 18px 16px;
+            box-shadow: 0 22px 60px rgba(15,23,42,.18);
+            font-family: "Consolas", "Courier New", monospace;
+            color: #000;
+        }
+        .receipt h2 {
+            margin: 0;
+            text-align: center;
+            font-size: 17px;
+            letter-spacing: .04em;
+        }
+        .receipt .store-info {
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.45;
+            margin-top: 4px;
+        }
+        .line {
+            border-top: 1px dashed #000;
+            margin: 10px 0;
+        }
+        .meta {
+            font-size: 11px;
+            line-height: 1.55;
+        }
+        .meta-row {
+            display: grid;
+            grid-template-columns: 82px 1fr;
+            gap: 6px;
+        }
+        .item {
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+        .item-name {
+            font-weight: 700;
+            line-height: 1.35;
+        }
+        .item-calc {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 8px;
+            margin-top: 2px;
+        }
+        .totals {
+            font-size: 12px;
+            line-height: 1.75;
+        }
+        .total-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+        }
+        .total-row.grand {
+            font-size: 14px;
+            font-weight: 900;
+            border-top: 1px dashed #000;
+            border-bottom: 1px dashed #000;
+            padding: 5px 0;
+            margin: 5px 0;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.5;
+            margin-top: 12px;
+        }
+        .barcode {
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+       @media print {
+    @page {
+        size: 80mm 297mm;
+        margin: 0;
+    }
+
+    html,
+    body {
+        width: 80mm;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+    }
+
+    .screen-wrap {
+        display: block;
+        width: 80mm;
+        margin: 0;
+        padding: 0;
+    }
+
+    .toolbar {
+        display: none !important;
+    }
+
+    .nota-preview {
+        display: block;
+        width: 80mm;
+        margin: 0;
+        padding: 0;
+    }
+
+    .receipt {
+        width: 72mm;
+        min-height: 0;
+        margin: 0 auto;
+        padding: 4mm;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+        @media (max-width: 840px) {
+            .screen-wrap { grid-template-columns: 1fr; }
+            .toolbar { order: 2; }
+            .nota-preview { order: 1; }
+        }
+    </style></head><body data-page="nota" class="print-page"><div id="nota-root"></div><script src="assets/html-app.js?v=20260610html_exact"></script></body></html>
